@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeAmide - Applications</title>
+    <style> 
+    body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    padding: 1rem;
+}
+
+header h1 {
+    color: #fff;
+    font-size: 2rem;
+    margin: 0;
+}
+
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: center;
+}
+
+main h2 {
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #333;
+    padding-bottom: 0.5rem;
+}
+
+main .applicant {
+    margin-bottom: 1rem;
+}
+
+main form {
+    margin-top: 1rem;
+}
+
+main label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+main select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.button {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    text-decoration:none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #444;
+}
+
+footer {
+    background-color: #333;
+    padding: 1rem;
+    text-align: center;
+    color: #fff;
+    margin-top: 2rem;
+}
+</style>
+</head>
+<body>
+    <header>
+        <h1>CodeAmide Employee Portal</h1>
+    </header>
+    <main>
+        <h2>Applications</h2>
+        <% for (applicant of applies) { %>
+        <div class="applicant">
+            <p>Application ID: <%= applicant.app_id %></p>
+            <p>Name: <%= applicant.name %></p>
+            <p>Mobile: <%= applicant.mobile %></p>
+            <p>Email: <%= applicant.email %></p>
+            <p>Skills: <%= applicant.skills %></p>
+            <p>Current CTC: <%= applicant.cCTC %></p>
+            <p>Current Job: <%= applicant.cjob %></p>
+            <p>Resume: <%= applicant.resume %></p>
+            <form method="POST">
+                <label for="option">Choose an option:</label>
+                <select id="option" name="option" required>
+                    <option value="reviewed">Reviewed</option>
+                    <option value="scheduled interview">Scheduled Interview</option>
+                    <option value="selected">Selected</option>
+                    <option value="rejected">Rejected</option>
+                </select>
+                <input type="hidden" name="id" value="<%= applicant.app_id %>">
+                <input type="submit" value="Update Status" class="button">
+            </form>
+</div>
+        <% } %>
+    </main>
+    <footer>
+        <p>&copy; 2023 CodeAmide</p>
+    </footer>
+</body>
+</html>

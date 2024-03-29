@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeAmide - Job Application</title>
+    <style> 
+    body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    padding: 1rem;
+}
+
+header h1 {
+    color: #fff;
+    font-size: 2rem;
+    margin: 0;
+}
+
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+main h2 {
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #333;
+    padding-bottom: 0.5rem;
+}
+
+main form {
+    margin-top: 1rem;
+}
+
+main label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+main input[type="text"],
+main input[type="email"],
+main input[type="file"] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+main input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+main input[type="submit"]:hover {
+    background-color: #444;
+}
+
+footer {
+    background-color: #333;
+    padding: 1rem;
+    text-align: center;
+    color: #fff;
+    margin-top: 2rem;
+}
+</style>
+</head>
+<body>
+    <header>
+        <h1>CodeAmide</h1>
+    </header>
+    <main>
+        <h2>Application for <%= job %></h2>
+        <form method="POST">
+            <label for="name">Full name:</label>
+            <input type="text" name="name" id="name" required>
+            <br>
+            <label for="mobile">Mobile number:</label>
+            <input type="text" name="mobile" id="mobile" required>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required>
+            <br>
+            <label for="cCTC">Current CTC:</label>
+            <input type="text" name="cCTC" id="cCTC" required>
+            <br>
+            <label for="cjob">Current job:</label>
+            <input type="text" name="cjob" id="cjob" required>
+            <br>
+            <label for="skills">Skills:</label>
+            <input type="text" name="skills" id="skills" required>
+            <br>
+            <label for="address">Address:</label>
+            <input type="text" name="address" id="address" required>
+            <br>
+            <label for="resume">Upload resume:</label>
+            <input type="file" name="resume" id="resume" required>
+            <br>
+            <label for="jobname">Job applying for:</label>
+            <input type="text" name="jobname" id="jobname" value="<%= job %>" readonly>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2023 CodeAmide</p>
+    </footer>
+</body>
+</html>
